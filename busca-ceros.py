@@ -5,7 +5,7 @@ Utiliza el metodo de la biseccion.
 
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.optimize import bisect, newton
+from scipy.optimize import bisect, newton, brentq
 
 
 x_to_plot = np.linspace(0, np.pi, 100)
@@ -44,6 +44,7 @@ def biseccion(func, a, b, tol=1e-4):
 cero_biseccion = biseccion(seno_menos_coseno, 0., 2., tol=1e-7)
 cero_scipy_bisect = bisect(seno_menos_coseno, 0., 2., rtol=1e-7)
 cero_scipy_newton = newton(seno_menos_coseno, 2.)
+cero_scipy_brent = brentq(seno_menos_coseno, 0., 2.)
 
 plt.axvline(cero_biseccion, color='r', label='cero_biseccion')
 plt.legend()
